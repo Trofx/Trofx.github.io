@@ -19,6 +19,31 @@
             padding-left: 20px;
             text-indent: -15px;
         }
+
+        /* Add the following media query */
+        @media (max-width: 767px) {
+            /* Adjust the styles for smaller screens here */
+
+            /* For example, you can reduce font size and adjust margins */
+            body {
+                font-size: 14px;
+            }
+
+            /* Reduce margin-top on the banner image */
+            .banner-section .item img {
+                margin-top: -100px;
+            }
+
+            /* Adjust the margin for the text in the banner */
+            .bg-blue-transparent.simple {
+                margin-top: -10px;
+            }
+
+            /* Center align the "Saada" button on smaller screens */
+            .contact-form .form-group.text-right {
+                text-align: center;
+            }
+        }
     </style>
 </head>
 
@@ -60,16 +85,13 @@
                         <img src="img/MALM-&-KO-OÜ-F.svg" alt="Image" style="margin-top: -200px;">
                         <div class="bg-blue-transparent simple" style="margin-left: -10px; margin-top: -45px;">
                             <p> Malm & KO OÜ on ettevõte, mis on pühendunud torutööde osutamisele kõrge kvaliteediga teenustega. Oleme tegutsenud alates 2014. aastast ning pakume oma teenuseid Lääne-Virumaal ning ka mujal Eestis. Meie eesmärgiks on pakkuda klientidele parimat kvaliteeti ja professionaalsust, olgu tegemist eraisiku, korteriühistu või ettevõttega.</p>
-
                         </div>
                     </div>
                 </div>
             </div>
 
             <section class="work-section section" id="section-2">
-
                 <div class="container">
-
                     <div class="title">
                         <h2>TEENUSED</h2>
                     </div>
