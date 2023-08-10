@@ -1,22 +1,51 @@
 <?php
+// Include the PHPMailer library
+require 'path_to_phpmailer/PHPMailerAutoload.php';
+
+// Check if the form was submitted via POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $_POST["nimi"];
-    $email = $_POST["email"];
-    $message = $_POST["sõnum"];
+    // Retrieve form data and perform basic validation
+    $name = trim($_POST["nimi"]);
+    $email = trim($_POST["email"]);
+    $message = trim($_POST["sõnum"]);
 
-    // Perform validation and data processing here
+    if (empty($name) || empty($email) || empty($message)) {
+        // Handle form fields that are required but empty
+        echo "Please fill in all required fields.";
+        exit;
+    }
 
-    // Example: Send an email
-    $to = "aleksgrete11@gmail.com";
+    // Create a new PHPMailer instance
+    $mail = new PHPMailer;
+    
+    // Configure SMTP settings
+    $mail->isSMTP();
+    $mail->Host = 'smtp.example.com';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'your_username@example.com';
+    $mail->Password = 'your_smtp_password';
+    $mail->SMTPSecure = 'tls';
+    $mail->Port = 587;
+
+    // Set sender and recipient addresses
+    $mail->setFrom($email, $name);
+    $mail->addAddress('malmjaanus@gmail.com', 'Recipient Name');
+
+    // Set email subject and message
     $subject = "New Inquiry from $name";
-    $headers = "From: $email\r\n";
-    $headers .= "Reply-To: $email\r\n";
+    $mail->Subject = $subject;
+    $mail->Body = $message;
 
-    mail($to, $subject, $message, $headers);
-
-    // You can also store the data in a database
-
-    // Redirect the user to a thank you page or show a success message
-    header("Location: thank_you_page.html");
+    // Send the email
+    if (!$mail->send()) {
+        // Handle email sending errors
+        echo "Mailer Error: " . $mail->ErrorInfo;
+    } else {
+        // Email sent successfully
+        header("Location: thank_you_page.html");
+    }
+} else {
+    // Redirect users who access this script directly
+    header("Location: index.html");
 }
 ?>
