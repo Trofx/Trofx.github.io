@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Perform validation and data processing here
 
     // Example: Send an email
-    $to = "malmjaanus@gmail.com";
+    $to = "aleksgrete11@gmail.com";
     $subject = "New Inquiry from $name";
     $headers = "From: $email\r\n";
     $headers .= "Reply-To: $email\r\n";
