@@ -82,7 +82,7 @@
             <div class="banner-section section parallax-window" data-parallax="scroll" data-image-src="" id="section-1">
                 <div class="container">
                     <div class="item">
-                        <img src="img/MALM-&-KO-OÜ-F.svg" alt="Image" style="margin-top: -200px;">
+                        <img src="img/MALM & KO OÜ final.svg" alt="Image" style="margin-top: -200px;">
                         <div class="bg-blue-transparent simple" style="margin-left: -10px; margin-top: -45px;">
                             <p> Malm & KO OÜ on ettevõte, mis on pühendunud torutööde osutamisele kõrge kvaliteediga teenustega. Oleme tegutsenud alates 2014. aastast ning pakume oma teenuseid Lääne-Virumaal ning ka mujal Eestis. Meie eesmärgiks on pakkuda klientidele parimat kvaliteeti ja professionaalsust, olgu tegemist eraisiku, korteriühistu või ettevõttega.</p>
                         </div>
@@ -129,7 +129,7 @@
                     <div class="row">
                         <div class="col-lg-5 col-md-6 mb-4 contact-form">
                             <div class="form tm-contact-item-inner">
-                                <form action="#" method="POST">
+                                <form action="process_form.php" method="POST">
                                     <div class="form-group">
                                         <input name="nimi" type="text" class="form-control" placeholder="Nimi">
                                     </div>
@@ -188,40 +188,7 @@
     <script src="js/templatemo-script.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#contactForm').submit(function(event) {
-                event.preventDefault(); // Prevent default form submission behavior
-            
-                // Extract form data
-                const formData = {
-                    nimi: $('input[name="nimi"]').val(),
-                    email: $('input[name="email"]').val(),
-                    sõnum: $('textarea[name="sõnum"]').val()
-                };
-            
-                // You can perform form validation here if needed
-                // For example, check if required fields are not empty, validate email format, etc.
-            
-                // Perform AJAX POST request to the server to submit the form data
-                $.ajax({
-                    url: 'your_server_url.php', // Replace with your actual server-side URL
-                    type: 'POST',
-                    data: formData,
-                    success: function(response) {
-                        // Handle success response here (e.g., show a success message to the user)
-                        console.log('Form submitted successfully:', response);
-                        alert('Form submitted successfully!');
-                    },
-                    error: function(error) {
-                        // Handle error response here (e.g., show an error message to the user)
-                        console.error('Error submitting the form:', error);
-                        alert('Error submitting the form. Please try again later.');
-                    }
-                });
-            });
-        });
-    </script>
+    
 
 </body>
 
